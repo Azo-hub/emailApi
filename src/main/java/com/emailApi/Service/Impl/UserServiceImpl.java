@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user) {
-		// TODO Auto-generated method stub
 
 		if (userRepository.existsByEmail(user.getEmail())) {
 			throw new RuntimeException("Email ALready exists");
@@ -38,15 +37,21 @@ public class UserServiceImpl implements UserService {
 		Confirmation confirmation = new Confirmation(user);
 		confirmationRepository.save(confirmation);
 
-		/* Send email to user */
+		/* TODO Send email to user */
 
 		return user;
 	}
 
 	@Override
 	public Boolean verifyToken(String token) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Confirmation confirmation = confirmationRepository.findByToken(token);
+		User user = userRepository.findByEmailIgnoreCase(confirmation.getUser().getEmail());
+		user.setEnabled(true);
+		userRepository.save(user);
+		confirmationRepository.delete(confirmation);
+
+		return Boolean.TRUE;
 	}
 
 }
