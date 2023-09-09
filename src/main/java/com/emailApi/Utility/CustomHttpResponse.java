@@ -1,5 +1,6 @@
 package com.emailApi.Utility;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class CustomHttpResponse {
 	
-	protected String timeStamp;
+	protected LocalDateTime timeStamp;
 	protected int statusCode;
 	protected HttpStatus status;
 	protected String message;

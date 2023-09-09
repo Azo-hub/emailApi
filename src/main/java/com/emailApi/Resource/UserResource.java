@@ -35,7 +35,7 @@ public class UserResource {
 		User newUser = userService.saveUser(user);
 
 		return ResponseEntity.created(URI.create(""))
-				.body(CustomHttpResponse.builder().timeStamp(LocalDateTime.now().toString())
+				.body(CustomHttpResponse.builder().timeStamp(LocalDateTime.now())
 						.data(Map.of("user", newUser)).message("User Created").status(HttpStatus.CREATED)
 						.statusCode(HttpStatus.CREATED.value()).build());
 
@@ -47,7 +47,7 @@ public class UserResource {
 		Boolean isSuccess = userService.verifyToken(token);
 
 		return ResponseEntity.created(URI.create(""))
-				.body(CustomHttpResponse.builder().timeStamp(LocalDateTime.now().toString())
+				.body(CustomHttpResponse.builder().timeStamp(LocalDateTime.now())
 						.data(Map.of("Success", isSuccess)).message("Account Verified").status(HttpStatus.OK)
 						.statusCode(HttpStatus.OK.value()).build());
 
