@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	public User saveUser(User user, String emailBody) {
+	public User saveUser(User user) {
 
 		if (userRepository.existsByEmail(user.getEmail())) {
 			throw new RuntimeException("Email ALready exists");
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 		Confirmation confirmation = new Confirmation(user);
 		confirmationRepository.save(confirmation);
 
-		emailService.sendSimpleMailMessage(user.getUsername(),user.getEmail() , confirmation.getToken(), emailBody);
+		emailService.sendSimpleMailMessage(user.getUsername(),user.getEmail() , confirmation.getToken());
 
 		return user;
 	}

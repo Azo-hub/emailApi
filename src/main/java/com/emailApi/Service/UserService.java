@@ -9,7 +9,8 @@ import com.emailApi.Domain.User;
  */
 
 public interface UserService {
-	User saveUser(User user, String emailBody);
+	User saveUser(User user);
 	Boolean verifyToken(String token);
+	
 	
 }
