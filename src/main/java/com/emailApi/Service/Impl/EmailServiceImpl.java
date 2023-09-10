@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.emailApi.Service.EmailService;
+import com.emailApi.Utility.EmailUtils;
 
 /**
  * @author Azo-hub
@@ -34,6 +35,7 @@ public class EmailServiceImpl implements EmailService {
 	private JavaMailSender emailSender;
 
 	@Override
+	@Async
 	public void sendSimpleMailMessage(String username, String to, String token) {
 		
 		try {
@@ -42,7 +44,7 @@ public class EmailServiceImpl implements EmailService {
 			message.setSubject(NEW_USER_ACCOUT_VERIFICATION);
 			message.setFrom(from);
 			message.setTo(to);
-			message.setText("Hey, It works!");
+			message.setText(EmailUtils.getEmailMessage(username, host, token));
 			emailSender.send(message);
 			
 		} catch(Exception exception) {
@@ -55,24 +57,28 @@ public class EmailServiceImpl implements EmailService {
 	}
 
 	@Override
+	@Async
 	public void sendMimeMessageWithAttachment(String username, String to, String token) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
+	@Async
 	public void sendMimeMessageWithEmbeddedFiles(String username, String to, String token) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
+	@Async
 	public void sendHtmlMessage(String username, String to, String token) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
+	@Async
 	public void sendHtmlMessageWithEmbeddedFiles(String username, String to, String token) {
 		// TODO Auto-generated method stub
 
