@@ -8,7 +8,7 @@ package com.emailApi.Service;
 
 public interface EmailService {
 
-	void sendSimpleMailMessage(String username, String to, String token, String emailBody);
+	void sendSimpleMailMessage(String username, String to, String token);
 
 	void sendMimeMessageWithAttachment(String username, String to, String token);
 
@@ -17,6 +17,8 @@ public interface EmailService {
 	void sendHtmlMessage(String username, String to, String token);
 
 	void sendHtmlMessageWithEmbeddedFiles(String username, String to, String token);
+
+	
 
 	
 	

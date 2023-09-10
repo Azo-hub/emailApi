@@ -34,7 +34,7 @@ public class EmailServiceImpl implements EmailService {
 	private JavaMailSender emailSender;
 
 	@Override
-	public void sendSimpleMailMessage(String username, String to, String token, String emailBody) {
+	public void sendSimpleMailMessage(String username, String to, String token) {
 		
 		try {
 
@@ -42,7 +42,7 @@ public class EmailServiceImpl implements EmailService {
 			message.setSubject(NEW_USER_ACCOUT_VERIFICATION);
 			message.setFrom(from);
 			message.setTo(to);
-			message.setText(emailBody);
+			message.setText("Hey, It works!");
 			emailSender.send(message);
 			
 		} catch(Exception exception) {

@@ -36,9 +36,9 @@ public class UserResource {
 	
 	
 	@PostMapping
-	public ResponseEntity<CustomHttpResponse> createUser(@RequestBody User user, @RequestParam("emailBody") String emailBody) {
+	public ResponseEntity<CustomHttpResponse> createUser(@RequestBody User user) {
 
-		User newUser = userService.saveUser(user, emailBody);
+		User newUser = userService.saveUser(user);
 
 		return ResponseEntity.created(URI.create(""))
 				.body(CustomHttpResponse.builder().timeStamp(LocalDateTime.now())
