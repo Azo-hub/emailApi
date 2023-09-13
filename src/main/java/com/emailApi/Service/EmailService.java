@@ -14,12 +14,9 @@ public interface EmailService {
 
 	void sendMimeMessageWithEmbeddedFiles(String username, String to, String token);
 
-	void sendHtmlMessage(String username, String to, String token);
+	void sendHtmlMessage(String username, String to, String token, String password);
 
-	void sendHtmlMessageWithEmbeddedFiles(String username, String to, String token);
-
-	
-
-	
+	void sendHtmlMessageWithEmbeddedFiles(String username, String to, String token, String password);
+		
 	
 }

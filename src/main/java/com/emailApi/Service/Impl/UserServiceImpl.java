@@ -16,7 +16,6 @@ import com.emailApi.Service.UserService;
  * @since 2020
  */
 
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -25,10 +24,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private ConfirmationRepository confirmationRepository;
-	
+
 	@Autowired
 	private EmailService emailService;
-
 
 	@Override
 	public User saveUser(User user) {
@@ -42,10 +40,25 @@ public class UserServiceImpl implements UserService {
 
 		Confirmation confirmation = new Confirmation(user);
 		confirmationRepository.save(confirmation);
-		
-		/*emailService.sendSimpleMailMessage(user.getUsername(),user.getEmail() , confirmation.getToken());*/
-		/*emailService.sendMimeMessageWithAttachment(user.getUsername(),user.getEmail() , confirmation.getToken());*/
-		emailService.sendMimeMessageWithEmbeddedFiles(user.getUsername(),user.getEmail() , confirmation.getToken());
+
+		/*
+		 * emailService.sendSimpleMailMessage(user.getUsername(),user.getEmail() ,
+		 * confirmation.getToken());
+		 */
+		/*
+		 * emailService.sendMimeMessageWithAttachment(user.getUsername(),user.getEmail()
+		 * , confirmation.getToken());
+		 */
+		/*
+		 * emailService.sendMimeMessageWithEmbeddedFiles(user.getUsername(),user.
+		 * getEmail() , confirmation.getToken());
+		 */
+		/*
+		 * emailService.sendHtmlMessage(user.getUsername(),user.getEmail() ,
+		 * confirmation.getToken(), user.getPassword());
+		 */
+		emailService.sendHtmlMessageWithEmbeddedFiles(user.getUsername(), user.getEmail(), confirmation.getToken(),
+				user.getPassword());
 
 		return user;
 	}

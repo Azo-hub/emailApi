@@ -12,7 +12,7 @@ public class EmailUtils {
 				getVerificationUrl(host, token) +  "\n\nThe Support Team";
 	}
 
-	private static String getVerificationUrl(String host, String token) {
+	public static String getVerificationUrl(String host, String token) {
 		
 		return host + "/api/users?token=" + token;
 	}

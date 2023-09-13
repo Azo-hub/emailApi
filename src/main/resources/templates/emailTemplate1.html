@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="ISO-8859-1">
 <title>ValenceDirectBookingRentals</title>
@@ -11,6 +13,7 @@
 	crossorigin="anonymous">
 
 </head>
+
 <body>
 
 	<table class="body-wrap"
@@ -78,6 +81,12 @@
 															th:text="${password}"></span></strong></td>
 												</tr>
 
+												<tr
+													style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
+													<td class="content-block"
+														style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
+														valign="top"><img src="cid:image" style="width:300px; height:300px;" /></td>
+												</tr>
 
 												<tr
 													style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
@@ -90,7 +99,8 @@
 													style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
 													<td class="content-block"
 														style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;"
-														valign="top"><a href="#" class="btn-primary"
+														valign="top"><a th:href="@{url}"
+														class="btn btn-primary"
 														style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #f1556c; margin: 0; border-color: #f1556c; border-style: solid; border-width: 8px 16px;">
 															Login into your account</a></td>
 												</tr>
@@ -143,4 +153,5 @@
 		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
 		crossorigin="anonymous"></script>
 </body>
+
 </html>
