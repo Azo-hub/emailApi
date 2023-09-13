@@ -117,18 +117,22 @@ public class EmailServiceImpl implements EmailService {
 			helper.setText(EmailUtils.getEmailMessage(username, host, token));
 
 			/* Add attachment */
-			FileSystemResource andrew = new FileSystemResource(
-					new File(System.getProperty("user.home") + "/Downloads/uploads/andrew.jpg"));
-			FileSystemResource arthur = new FileSystemResource(
-					new File(System.getProperty("user.home") + "/Downloads/uploads/arthur.jpg"));
-			FileSystemResource bashNote = new FileSystemResource(
-					new File(System.getProperty("user.home") + "/Downloads/uploads/BashNote.pdf"));
+			
+			  FileSystemResource andrew = new FileSystemResource( new
+			  File(System.getProperty("user.home") + "/Downloads/uploads/andrew.jpg"));
+			  FileSystemResource arthur = new FileSystemResource( new
+			  File(System.getProperty("user.home") + "/Downloads/uploads/arthur.jpg"));
+			  FileSystemResource bashNote = new FileSystemResource( new
+			  File(System.getProperty("user.home") + "/Downloads/uploads/BashNote.pdf"));
+			 
 			FileSystemResource prominent = new FileSystemResource(
 					new File(System.getProperty("user.home") + "/Downloads/uploads/Prominent Physics Questions.docx"));
 
-			helper.addInline(getContentId(andrew.getFilename()), andrew);
-			helper.addInline(getContentId(arthur.getFilename()), arthur);
-			helper.addInline(getContentId(bashNote.getFilename()), bashNote);
+			
+			  helper.addInline(getContentId(andrew.getFilename()), andrew);
+			  helper.addInline(getContentId(arthur.getFilename()), arthur);
+			  helper.addInline(getContentId(bashNote.getFilename()), bashNote);
+			 
 			helper.addInline(getContentId(prominent.getFilename()), prominent);
 			emailSender.send(message);
 
